@@ -99,11 +99,11 @@ export default function Home() {
           </nav>
 
           <a
-            href="tel:+971562281101"
+            href="tel:+971528102191"
             className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-opacity-80 transition-colors"
           >
             <Phone size={20} />
-            0562281101
+            0528102191
           </a>
 
           <Button className="md:hidden bg-primary text-white hover:bg-opacity-90">
@@ -272,8 +272,8 @@ export default function Home() {
                 <Phone className="text-accent" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">Phone</h3>
-              <a href="tel:+971562281101" className="text-gray-100 hover:text-accent transition-colors">
-                0562281101
+              <a href="tel:+971528102191" className="text-gray-100 hover:text-accent transition-colors">
+                0528102191
               </a>
             </div>
 
@@ -300,11 +300,11 @@ export default function Home() {
               Call us today for a free consultation and quote. Our team is ready to help!
             </p>
             <a
-              href="tel:+971562281101"
+              href="tel:+971528102191"
               className="inline-flex items-center justify-center px-8 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-90 transition-all"
             >
               <Phone className="mr-2" size={20} />
-              Call 0562281101
+              Call 0528102191
             </a>
           </div>
         </div>
