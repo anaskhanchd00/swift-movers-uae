@@ -65,6 +65,10 @@ export default function Home() {
       title: "Storage Solutions",
       description: "Secure, climate-controlled storage facilities available",
     },
+    {
+      title: "Professional Service",
+      description: "Dedicated team committed to your satisfaction",
+    },
   ];
 
   return (
