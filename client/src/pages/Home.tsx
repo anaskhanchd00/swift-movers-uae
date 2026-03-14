@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Building2, Package, Truck, Lock } from "lucide-react";
+import { Phone, MapPin, Building2, Package, Truck, Lock, Mail } from "lucide-react";
 import { useState } from "react";
 
 /**
@@ -62,8 +62,8 @@ export default function Home() {
       description: "Latest moving trucks and professional handling equipment",
     },
     {
-      title: "Affordable Pricing",
-      description: "Transparent pricing with no hidden charges",
+      title: "Storage Solutions",
+      description: "Secure, climate-controlled storage facilities available",
     },
   ];
 
@@ -262,7 +262,7 @@ export default function Home() {
             <p className="text-gray-100 text-lg">Ready to move? Contact us for a free quote</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Phone className="text-accent" size={32} />
@@ -270,6 +270,16 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">Phone</h3>
               <a href="tel:+971528102191" className="text-gray-100 hover:text-accent transition-colors">
                 0528102191
+              </a>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Mail className="text-accent" size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Email</h3>
+              <a href="mailto:ramoversandpackers33@gmail.com" className="text-gray-100 hover:text-accent transition-colors break-all">
+                ramoversandpackers33@gmail.com
               </a>
             </div>
 
