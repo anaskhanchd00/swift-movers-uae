@@ -58,10 +58,6 @@ export default function Home() {
       description: "Over 15 years of professional moving experience",
     },
     {
-      title: "Fully Insured",
-      description: "Complete insurance coverage for your peace of mind",
-    },
-    {
       title: "Modern Equipment",
       description: "Latest moving trucks and professional handling equipment",
     },
