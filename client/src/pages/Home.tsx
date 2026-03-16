@@ -448,7 +448,6 @@ export default function Home() {
       <footer className="bg-gray-900 text-gray-400 py-8">
         <div className="container text-center">
           <p>© 2026 TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C. All rights reserved.</p>
-          <p className="mt-2 text-sm">Made with Manus</p>
         </div>
       </footer>
     </div>
