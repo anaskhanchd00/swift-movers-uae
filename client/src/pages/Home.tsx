@@ -11,6 +11,109 @@ import { useState } from "react";
 
 export default function Home() {
   const [activeService, setActiveService] = useState<number | null>(null);
+  const [language, setLanguage] = useState<'en' | 'ar'>('en');
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ar' : 'en');
+    document.documentElement.dir = language === 'en' ? 'rtl' : 'ltr';
+  };
+
+  const translations = {
+    en: {
+      tareeqSaree: 'TAREEQ SAREE',
+      services: 'Services',
+      whyUs: 'Why Us',
+      coverage: 'Coverage',
+      contact: 'Contact',
+      phone: 'Phone',
+      email: 'Email',
+      serviceArea: 'Service Area',
+      company: 'Company',
+      getQuote: 'Get Free Quote',
+      learnMore: 'Learn More',
+      callNow: 'Call Now',
+      professionalMoving: 'Professional Moving Services',
+      yourMove: 'Your Move, Our Care',
+      companyDesc: 'TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C delivers professional, stress-free moving services across all of UAE and Dubai. From residential relocations to commercial transfers, we handle everything with precision and care.',
+      happyClients: 'Happy Clients',
+      yearsExperience: 'Years Experience',
+      satisfaction: 'Satisfaction',
+      serviceTitle: 'Our Services',
+      whyChoose: 'Why Choose TAREEQ SAREE?',
+      coverageTitle: 'Coverage Across UAE',
+      coverageDesc: 'We serve all major emirates and cities',
+      getInTouch: 'Get In Touch',
+      readyToMove: 'Ready to move? Contact us for a free quote',
+      allEmiratesDesc: 'All Emirates - Dubai, Abu Dhabi, Sharjah & More',
+      readyToMoveBtn: 'Ready to Move?',
+      callUs: 'Call us today for a free consultation and quote. Our team is ready to help!',
+      professionalService: 'Professional service available',
+      experiencedTeam: 'Experienced Team',
+      experiencedDesc: 'Over 15 years of professional moving experience',
+      modernEquipment: 'Modern Equipment',
+      modernDesc: 'Latest moving trucks and professional handling equipment',
+      storage: 'Storage Solutions',
+      storageDesc: 'Secure, climate-controlled storage facilities available',
+      professionalServiceTitle: 'Professional Service',
+      professionalServiceDesc: 'Dedicated team committed to your satisfaction',
+      residentialMoving: 'Residential Moving',
+      residentialDesc: 'Professional house shifting with careful handling of all your belongings',
+      packingUnpacking: 'Packing & Unpacking',
+      packingDesc: 'Expert packing with premium materials to ensure safe transport',
+      furnitureTransfer: 'Furniture Transfer',
+      furnitureDesc: 'Safe and secure furniture moving with specialized equipment',
+      storageService: 'Storage Solutions',
+      storageServiceDesc: 'Secure, climate-controlled storage facilities for your items',
+    },
+    ar: {
+      tareeqSaree: 'طريق سري',
+      services: 'الخدمات',
+      whyUs: 'لماذا نحن',
+      coverage: 'التغطية',
+      contact: 'اتصل',
+      phone: 'الهاتف',
+      email: 'البريد الإلكتروني',
+      serviceArea: 'منطقة الخدمة',
+      company: 'الشركة',
+      getQuote: 'احصل على عرض مجاني',
+      learnMore: 'تعرف على المزيد',
+      callNow: 'اتصل الآن',
+      professionalMoving: 'خدمات النقل المهنية',
+      yourMove: 'نقلتك، رعايتنا',
+      companyDesc: 'تقدم شركة طريق سري للنقل والتغليف نقل الأثاث خدمات نقل احترافية وخالية من الإجهاد في جميع أنحاء الإمارات ودبي. من نقل المنازل إلى التحويلات التجارية، نتعامل مع كل شيء بدقة وعناية.',
+      happyClients: 'عملاء سعداء',
+      yearsExperience: 'سنة خبرة',
+      satisfaction: 'رضا',
+      serviceTitle: 'خدماتنا',
+      whyChoose: 'لماذا تختار طريق سري؟',
+      coverageTitle: 'التغطية في جميع أنحاء الإمارات',
+      coverageDesc: 'نخدم جميع الإمارات والمدن الرئيسية',
+      getInTouch: 'تواصل معنا',
+      readyToMove: 'هل أنت مستعد للانتقال؟ تواصل معنا للحصول على عرض مجاني',
+      allEmiratesDesc: 'جميع الإمارات - دبي وأبو ظبي والشارقة والمزيد',
+      readyToMoveBtn: 'هل أنت مستعد للانتقال؟',
+      callUs: 'اتصل بنا اليوم للحصول على استشارة مجانية وعرض. فريقنا مستعد لمساعدتك!',
+      professionalService: 'الخدمة المهنية متاحة',
+      experiencedTeam: 'فريق ذو خبرة',
+      experiencedDesc: 'أكثر من 15 سنة من خبرة النقل المهنية',
+      modernEquipment: 'معدات حديثة',
+      modernDesc: 'أحدث شاحنات نقل ومعدات معالجة احترافية',
+      storage: 'حلول التخزين',
+      storageDesc: 'مرافق تخزين آمنة ومكيفة متاحة',
+      professionalServiceTitle: 'الخدمة المهنية',
+      professionalServiceDesc: 'فريق مخصص ملتزم برضاك',
+      residentialMoving: 'نقل المنازل',
+      residentialDesc: 'نقل منزل احترافي مع معالجة حذرة لجميع متعلقاتك',
+      packingUnpacking: 'التغليف والفك',
+      packingDesc: 'تغليف خبير بمواد عالية الجودة لضمان النقل الآمن',
+      furnitureTransfer: 'نقل الأثاث',
+      furnitureDesc: 'نقل أثاث آمن وموثوق مع معدات متخصصة',
+      storageService: 'حلول التخزين',
+      storageServiceDesc: 'مرافق تخزين آمنة ومكيفة لمتعلقاتك',
+    },
+  };
+
+  const t = translations[language];
 
   const services = [
     {
@@ -85,29 +188,37 @@ export default function Home() {
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-gray-700 hover:text-primary transition-colors">
-              Services
+              {t.services}
             </a>
             <a href="#why-us" className="text-gray-700 hover:text-primary transition-colors">
-              Why Us
+              {t.whyUs}
             </a>
             <a href="#coverage" className="text-gray-700 hover:text-primary transition-colors">
-              Coverage
+              {t.coverage}
             </a>
             <a href="#contact" className="text-gray-700 hover:text-primary transition-colors">
-              Contact
+              {t.contact}
             </a>
           </nav>
 
-          <a
-            href="tel:+971528102191"
-            className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-opacity-80 transition-colors"
-          >
-            <Phone size={20} />
-            0528102191
-          </a>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-2 rounded-lg bg-accent text-primary font-bold text-sm hover:bg-opacity-90 transition-all"
+            >
+              {language === 'en' ? 'العربية' : 'English'}
+            </button>
+            <a
+              href="tel:+971528102191"
+              className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-opacity-80 transition-colors"
+            >
+              <Phone size={20} />
+              0528102191
+            </a>
+          </div>
 
           <Button className="md:hidden bg-primary text-white hover:bg-opacity-90">
-            Get Free Quote
+            {t.getQuote}
           </Button>
         </div>
       </header>
