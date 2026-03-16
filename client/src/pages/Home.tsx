@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Building2, Package, Truck, Lock, Mail } from "lucide-react";
+import { Phone, MapPin, Building2, Package, Truck, Lock, Mail, Globe } from "lucide-react";
 import { useState } from "react";
+import React from "react";
 
 /**
  * Swift Movers UAE - Professional Moving Services Landing Page
@@ -14,9 +15,17 @@ export default function Home() {
   const [language, setLanguage] = useState<'en' | 'ar'>('en');
 
   const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'ar' : 'en');
-    document.documentElement.dir = language === 'en' ? 'rtl' : 'ltr';
+    const newLang = language === 'en' ? 'ar' : 'en';
+    setLanguage(newLang);
+    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = newLang;
   };
+
+  // Apply RTL/LTR on initial load
+  React.useEffect(() => {
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
+  }, [language]);
 
   const translations = {
     en: {
@@ -115,36 +124,38 @@ export default function Home() {
 
   const t = translations[language];
 
-  const services = [
+  const getServices = () => [
     {
       id: 1,
-      title: "Residential Moving",
-      description: "Professional house shifting with careful handling of all your belongings",
+      title: t.residentialMoving,
+      description: t.residentialDesc,
       icon: Building2,
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663434615536/j7CZjLGcgrp63CmChGp6VF/residential-moving-AqaKyGCYdhvUPBTuhUBpa7.webp",
     },
     {
       id: 2,
-      title: "Packing & Unpacking",
-      description: "Expert packing with premium materials to ensure safe transport",
+      title: t.packingUnpacking,
+      description: t.packingDesc,
       icon: Package,
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663434615536/j7CZjLGcgrp63CmChGp6VF/packing-service-5HjhddU24tCPEu9yQpeLHH.webp",
     },
     {
       id: 3,
-      title: "Furniture Transfer",
-      description: "Safe and secure furniture moving with specialized equipment",
+      title: t.furnitureTransfer,
+      description: t.furnitureDesc,
       icon: Truck,
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663434615536/j7CZjLGcgrp63CmChGp6VF/furniture-transfer-bPSDijrKm5d72y68TcPjbA.webp",
     },
     {
       id: 4,
-      title: "Storage Solutions",
-      description: "Secure, climate-controlled storage facilities for your items",
+      title: t.storageService,
+      description: t.storageServiceDesc,
       icon: Lock,
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663434615536/j7CZjLGcgrp63CmChGp6VF/storage-solutions-cwKJhPaMaPoGvMdg3NvW8G.webp",
     },
   ];
+
+  const services = getServices();
 
   const coverage = [
     { name: "Dubai", emoji: "🏙️" },
@@ -155,24 +166,26 @@ export default function Home() {
     { name: "Fujairah", emoji: "🌊" },
   ];
 
-  const whyChooseUs = [
+  const getWhyChooseUs = () => [
     {
-      title: "Experienced Team",
-      description: "Over 15 years of professional moving experience",
+      title: t.experiencedTeam,
+      description: t.experiencedDesc,
     },
     {
-      title: "Modern Equipment",
-      description: "Latest moving trucks and professional handling equipment",
+      title: t.modernEquipment,
+      description: t.modernDesc,
     },
     {
-      title: "Storage Solutions",
-      description: "Secure, climate-controlled storage facilities available",
+      title: t.storage,
+      description: t.storageDesc,
     },
     {
-      title: "Professional Service",
-      description: "Dedicated team committed to your satisfaction",
+      title: t.professionalServiceTitle,
+      description: t.professionalServiceDesc,
     },
   ];
+
+  const whyChooseUs = getWhyChooseUs();
 
   return (
     <div className="min-h-screen bg-white">
@@ -204,9 +217,11 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className="px-3 py-2 rounded-lg bg-accent text-primary font-bold text-sm hover:bg-opacity-90 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-primary font-bold text-sm hover:bg-opacity-90 transition-all shadow-sm hover:shadow-md"
+              title={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
             >
-              {language === 'en' ? 'العربية' : 'English'}
+              <Globe size={18} />
+              <span>{language === 'en' ? 'العربية' : 'English'}</span>
             </button>
             <a
               href="tel:+971528102191"
@@ -229,32 +244,30 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="flex flex-col justify-center">
-              <p className="text-accent font-semibold text-lg mb-4">Professional Moving Services</p>
-              <h1 className="text-primary mb-6 leading-tight">Your Move, Our Care</h1>
+              <p className="text-accent font-semibold text-lg mb-4">{t.professionalMoving}</p>
+              <h1 className="text-primary mb-6 leading-tight">{t.yourMove}</h1>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C delivers professional,
-                stress-free moving services across all of UAE and Dubai. From residential
-                relocations to commercial transfers, we handle everything with precision and care.
+                {t.companyDesc}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Button className="cta-button cta-button-primary text-lg">Get Free Quote</Button>
-                <Button className="cta-button cta-button-secondary text-lg">Learn More</Button>
+                <Button className="cta-button cta-button-primary text-lg">{t.getQuote}</Button>
+                <Button className="cta-button cta-button-secondary text-lg">{t.learnMore}</Button>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
                 <div>
                   <p className="stat-number">500+</p>
-                  <p className="stat-label">Happy Clients</p>
+                  <p className="stat-label">{t.happyClients}</p>
                 </div>
                 <div>
                   <p className="stat-number">15+</p>
-                  <p className="stat-label">Years Experience</p>
+                  <p className="stat-label">{t.yearsExperience}</p>
                 </div>
                 <div>
                   <p className="stat-number">100%</p>
-                  <p className="stat-label">Satisfaction</p>
+                  <p className="stat-label">{t.satisfaction}</p>
                 </div>
               </div>
             </div>
@@ -275,9 +288,9 @@ export default function Home() {
       <section id="services" className="section-padding bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-primary mb-4">Our Services</h2>
+            <h2 className="text-primary mb-4">{t.serviceTitle}</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Comprehensive moving solutions tailored to your needs
+              {language === 'en' ? 'Comprehensive moving solutions tailored to your needs' : 'حلول نقل شاملة مصممة حسب احتياجاتك'}
             </p>
           </div>
 
@@ -314,7 +327,7 @@ export default function Home() {
       <section id="why-us" className="section-padding bg-gray-50">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-primary mb-4">Why Choose TAREEQ SAREE?</h2>
+            <h2 className="text-primary mb-4">{t.whyChoose}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -342,8 +355,8 @@ export default function Home() {
       <section id="coverage" className="section-padding bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-primary mb-4">Coverage Across UAE</h2>
-            <p className="text-gray-600 text-lg">We serve all major emirates and cities</p>
+            <h2 className="text-primary mb-4">{t.coverageTitle}</h2>
+            <p className="text-gray-600 text-lg">{t.coverageDesc}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
@@ -354,7 +367,7 @@ export default function Home() {
               >
                 <p className="text-4xl mb-3">{city.emoji}</p>
                 <h3 className="text-primary font-bold">{city.name}</h3>
-                <p className="text-gray-600 text-sm mt-2">Professional service available</p>
+                <p className="text-gray-600 text-sm mt-2">{t.professionalService}</p>
               </div>
             ))}
           </div>
@@ -373,8 +386,8 @@ export default function Home() {
       <section id="contact" className="section-padding bg-primary text-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-white mb-4">Get In Touch</h2>
-            <p className="text-gray-100 text-lg">Ready to move? Contact us for a free quote</p>
+            <h2 className="text-white mb-4">{t.getInTouch}</h2>
+            <p className="text-gray-100 text-lg">{t.readyToMove}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -382,7 +395,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Phone className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Phone</h3>
+              <h3 className="text-xl font-bold mb-2">{t.phone}</h3>
               <a href="tel:+971528102191" className="text-gray-100 hover:text-accent transition-colors">
                 0528102191
               </a>
@@ -392,7 +405,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Mail className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Email</h3>
+              <h3 className="text-xl font-bold mb-2">{t.email}</h3>
               <a href="mailto:ramoversandpackers33@gmail.com" className="text-gray-100 hover:text-accent transition-colors break-all">
                 ramoversandpackers33@gmail.com
               </a>
@@ -402,7 +415,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <MapPin className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Service Area</h3>
+              <h3 className="text-xl font-bold mb-2">{t.serviceArea}</h3>
               <p className="text-gray-100">All Emirates - Dubai, Abu Dhabi, Sharjah & More</p>
             </div>
 
@@ -410,22 +423,22 @@ export default function Home() {
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Building2 className="text-accent" size={32} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Company</h3>
+              <h3 className="text-xl font-bold mb-2">{t.company}</h3>
               <p className="text-gray-100">TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C</p>
             </div>
           </div>
 
           <div className="bg-white bg-opacity-10 p-8 rounded-lg text-center border border-white border-opacity-20">
-            <h3 className="text-2xl font-bold mb-4">Ready to Move?</h3>
+            <h3 className="text-2xl font-bold mb-4">{t.readyToMoveBtn}</h3>
             <p className="text-gray-100 mb-6">
-              Call us today for a free consultation and quote. Our team is ready to help!
+              {t.callUs}
             </p>
             <a
               href="tel:+971528102191"
               className="inline-flex items-center justify-center px-8 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-90 transition-all"
             >
               <Phone className="mr-2" size={20} />
-              Call 0528102191
+              {t.callNow} 0528102191
             </a>
           </div>
         </div>
