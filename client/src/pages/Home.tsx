@@ -444,6 +444,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Floating Call Button */}
+      <a
+        href="tel:+971528102191"
+        className="fixed bottom-8 right-8 z-40 flex items-center justify-center w-16 h-16 bg-accent text-primary rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 animate-pulse"
+        title="Call us now"
+      >
+        <Phone size={28} className="animate-bounce" />
+      </a>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-8">
         <div className="container text-center">
