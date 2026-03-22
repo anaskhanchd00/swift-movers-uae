@@ -13,6 +13,9 @@ import React from "react";
 export default function Home() {
   const [activeService, setActiveService] = useState<number | null>(null);
   const [language, setLanguage] = useState<'en' | 'ar'>('en');
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', serviceType: 'residential' });
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formMessage, setFormMessage] = useState('');
 
   const toggleLanguage = () => {
     const newLang = language === 'en' ? 'ar' : 'en';
@@ -38,7 +41,7 @@ export default function Home() {
       email: 'Email',
       serviceArea: 'Service Area',
       company: 'Company',
-      getQuote: 'Get Free Quote',
+      getQuote: 'For Urgent Call Now',
       learnMore: 'Learn More',
       callNow: 'Call Now',
       professionalMoving: 'Professional Moving Services',
@@ -84,7 +87,7 @@ export default function Home() {
       email: 'البريد الإلكتروني',
       serviceArea: 'منطقة الخدمة',
       company: 'الشركة',
-      getQuote: 'احصل على عرض مجاني',
+      getQuote: 'للاتصال العاجل الآن',
       learnMore: 'تعرف على المزيد',
       callNow: 'اتصل الآن',
       professionalMoving: 'خدمات النقل المهنية',
@@ -232,9 +235,12 @@ export default function Home() {
             </a>
           </div>
 
-          <Button className="md:hidden bg-primary text-white hover:bg-opacity-90">
+          <a
+            href="tel:+971528102191"
+            className="md:hidden bg-primary text-white hover:bg-opacity-90 px-4 py-2 rounded-lg font-semibold transition-all"
+          >
             {t.getQuote}
-          </Button>
+          </a>
         </div>
       </header>
 
@@ -441,6 +447,142 @@ export default function Home() {
               {t.callNow} 0528102191
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container max-w-2xl">
+          <div className="text-center mb-12">
+            <h2 className="text-primary mb-4">{language === 'en' ? 'Contact Us' : 'تواصل معنا'}</h2>
+            <p className="text-gray-600 text-lg">
+              {language === 'en' ? 'Fill out the form below and we will get back to you shortly' : 'املأ النموذج أدناه وسنعود إليك قريباً'}
+            </p>
+          </div>
+
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setFormSubmitting(true);
+              try {
+                const response = await fetch('https://formspree.io/f/xvgzpnzg', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    serviceType: formData.serviceType,
+                    message: formData.message,
+                  }),
+                });
+                if (response.ok) {
+                  setFormMessage(language === 'en' ? 'Thank you! We will contact you soon.' : 'شكراً! سنتواصل معك قريباً.');
+                  setFormData({ name: '', email: '', phone: '', message: '', serviceType: 'residential' });
+                } else {
+                  setFormMessage(language === 'en' ? 'Error sending message. Please try again.' : 'خطأ في إرسال الرسالة. حاول مرة أخرى.');
+                }
+              } catch (error) {
+                setFormMessage(language === 'en' ? 'Error sending message. Please try again.' : 'خطأ في إرسال الرسالة. حاول مرة أخرى.');
+              }
+              setFormSubmitting(false);
+              setTimeout(() => setFormMessage(''), 5000);
+            }}
+            className="bg-white p-8 rounded-lg shadow-lg"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">
+                  {language === 'en' ? 'Name' : 'الاسم'}
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                  placeholder={language === 'en' ? 'Your name' : 'اسمك'}
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">
+                  {language === 'en' ? 'Email' : 'البريد الإلكتروني'}
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                  placeholder={language === 'en' ? 'Your email' : 'بريدك الإلكتروني'}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">
+                  {language === 'en' ? 'Phone' : 'الهاتف'}
+                </label>
+                <input
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                  placeholder={language === 'en' ? 'Your phone' : 'هاتفك'}
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">
+                  {language === 'en' ? 'Service Type' : 'نوع الخدمة'}
+                </label>
+                <select
+                  value={formData.serviceType}
+                  onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                >
+                  <option value="residential">{language === 'en' ? 'Residential Moving' : 'نقل المنازل'}</option>
+                  <option value="commercial">{language === 'en' ? 'Commercial Moving' : 'نقل تجاري'}</option>
+                  <option value="packing">{language === 'en' ? 'Packing & Unpacking' : 'التغليف والفك'}</option>
+                  <option value="storage">{language === 'en' ? 'Storage Solutions' : 'حلول التخزين'}</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-gray-700 font-semibold mb-2">
+                {language === 'en' ? 'Message' : 'الرسالة'}
+              </label>
+              <textarea
+                required
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary h-32 resize-none"
+                placeholder={language === 'en' ? 'Your message' : 'رسالتك'}
+              />
+            </div>
+
+            {formMessage && (
+              <div className={`mb-6 p-4 rounded-lg text-center font-semibold ${
+                formMessage.includes('Thank') || formMessage.includes('شكراً')
+                  ? 'bg-green-100 text-green-700'
+                  : 'bg-red-100 text-red-700'
+              }`}>
+                {formMessage}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={formSubmitting}
+              className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-all disabled:opacity-50"
+            >
+              {formSubmitting
+                ? language === 'en' ? 'Sending...' : 'جاري الإرسال...'
+                : language === 'en' ? 'Send Message' : 'إرسال الرسالة'}
+            </button>
+          </form>
         </div>
       </section>
 
