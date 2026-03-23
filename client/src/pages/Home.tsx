@@ -228,18 +228,19 @@ export default function Home() {
             </button>
             <a
               href="tel:+971528102191"
-              className="hidden md:flex items-center gap-2 text-primary font-semibold hover:text-opacity-80 transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-opacity-90 transition-all"
             >
               <Phone size={20} />
-              0528102191
+              {language === 'en' ? 'For Urgent Call Now' : 'اتصل الآن'}
             </a>
           </div>
 
             <a
-              href="#contact"
-              className="md:hidden bg-primary text-white hover:bg-opacity-90 px-4 py-2 rounded-lg font-semibold transition-all"
+              href="tel:+971528102191"
+              className="md:hidden bg-primary text-white hover:bg-opacity-90 px-4 py-2 rounded-lg font-semibold transition-all inline-flex items-center gap-2"
             >
-              {t.getQuote}
+              <Phone size={18} />
+              {language === 'en' ? 'Call Now' : 'اتصل'}
             </a>
         </div>
       </header>
