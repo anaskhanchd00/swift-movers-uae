@@ -41,7 +41,7 @@ export default function Home() {
       email: 'Email',
       serviceArea: 'Service Area',
       company: 'Company',
-      getQuote: 'Get Quote for Your Location',
+      getQuote: 'Start Your Hassle-Free Move Today',
       learnMore: 'Learn More',
       callNow: 'Call Now',
       professionalMoving: 'Professional Moving Services',
@@ -55,9 +55,9 @@ export default function Home() {
       coverageTitle: 'Coverage Across UAE',
       coverageDesc: 'We serve all emirates across UAE with comprehensive coverage',
       getInTouch: 'Get In Touch',
-      readyToMove: 'Get Quote for Your Location - Contact us for a free quote',
-      allEmiratesDesc: 'All Emirates Across UAE - Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah & More',
-      readyToMoveBtn: 'Get Quote for Your Location',
+      readyToMove: 'Start Your Hassle-Free Move Today - Contact us for a free quote',
+      allEmiratesDesc: 'Serving All Emirates Across UAE - Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah & More',
+      readyToMoveBtn: 'Start Your Hassle-Free Move Today',
       callUs: 'Call us today for a free consultation and quote. Our team is ready to help you move!',
       professionalService: 'Professional service available',
       experiencedTeam: 'Experienced Team',
@@ -87,7 +87,7 @@ export default function Home() {
       email: 'البريد الإلكتروني',
       serviceArea: 'منطقة الخدمة',
       company: 'الشركة',
-      getQuote: 'احصل على عرض لموقعك',
+      getQuote: 'ابدأ نقلك بسهولة اليوم',
       learnMore: 'تعرف على المزيد',
       callNow: 'اتصل الآن',
       professionalMoving: 'خدمات النقل المهنية',
@@ -101,9 +101,9 @@ export default function Home() {
       coverageTitle: 'التغطية في جميع أنحاء الإمارات',
       coverageDesc: 'نخدم جميع الإمارات عبر الإمارات بتغطية شاملة',
       getInTouch: 'تواصل معنا',
-      readyToMove: 'احصل على عرض لموقعك - تواصل معنا للحصول على عرض مجاني',
-      allEmiratesDesc: 'جميع الإمارات عبر الإمارات - دبي وأبو ظبي والشارقة وعجمان ورأس الخيمة والفجيرة والمزيد',
-      readyToMoveBtn: 'احصل على عرض لموقعك',
+      readyToMove: 'ابدأ نقلك بسهولة اليوم - تواصل معنا للحصول على عرض مجاني',
+      allEmiratesDesc: 'خدمات في جميع الإمارات - دبي وأبو ظبي والشارقة وعجمان ورأس الخيمة والفجيرة والمزيد',
+      readyToMoveBtn: 'ابدأ نقلك بسهولة اليوم',
       callUs: 'اتصل بنا اليوم للحصول على استشارة مجانية وعرض. فريقنا مستعد لمساعدتك في نقلك!',
       professionalService: 'الخدمة المهنية متاحة',
       experiencedTeam: 'فريق ذو خبرة',
@@ -298,6 +298,9 @@ export default function Home() {
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               {language === 'en' ? 'Comprehensive moving solutions tailored to your needs' : 'حلول نقل شاملة مصممة حسب احتياجاتك'}
             </p>
+            <div className="mt-8 inline-block bg-accent bg-opacity-10 border-2 border-accent rounded-lg px-6 py-3">
+              <p className="text-accent font-bold text-sm">{language === 'en' ? 'Serving All Emirates Across UAE' : 'خدمات في جميع الإمارات'}</p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
