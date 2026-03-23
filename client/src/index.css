@@ -198,7 +198,7 @@
   }
 
   .stat-label {
-    @apply text-gray-600 text-sm md:text-base;
+    @apply text-gray-700 text-sm md:text-base font-medium;
   }
 
   .service-card {
@@ -218,11 +218,11 @@
   }
 
   .cta-button-secondary {
-    @apply border-2 border-primary text-primary;
+    @apply border-2 border-primary text-white bg-primary;
   }
 
   .cta-button-secondary:hover {
-    @apply bg-primary text-white;
+    @apply opacity-90;
   }
 
   @media (min-width: 640px) {
