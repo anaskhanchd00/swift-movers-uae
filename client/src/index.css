@@ -194,11 +194,11 @@
   }
 
   .stat-number {
-    @apply text-4xl md:text-5xl font-bold text-accent;
+    @apply text-4xl md:text-5xl font-bold text-primary;
   }
 
   .stat-label {
-    @apply text-gray-700 text-sm md:text-base font-medium;
+    @apply text-primary text-sm md:text-base font-semibold;
   }
 
   .service-card {
