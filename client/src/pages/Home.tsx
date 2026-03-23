@@ -41,7 +41,7 @@ export default function Home() {
       email: 'Email',
       serviceArea: 'Service Area',
       company: 'Company',
-      getQuote: 'For Urgent Call Now',
+      getQuote: 'Get Quote for Your Location',
       learnMore: 'Learn More',
       callNow: 'Call Now',
       professionalMoving: 'Professional Moving Services',
@@ -53,12 +53,12 @@ export default function Home() {
       serviceTitle: 'Our Services',
       whyChoose: 'Why Choose TAREEQ SAREE?',
       coverageTitle: 'Coverage Across UAE',
-      coverageDesc: 'We serve all major emirates and cities',
+      coverageDesc: 'We serve all emirates across UAE with comprehensive coverage',
       getInTouch: 'Get In Touch',
-      readyToMove: 'Ready to move? Contact us for a free quote',
-      allEmiratesDesc: 'All Emirates - Dubai, Abu Dhabi, Sharjah & More',
-      readyToMoveBtn: 'Ready to Move?',
-      callUs: 'Call us today for a free consultation and quote. Our team is ready to help!',
+      readyToMove: 'Get Quote for Your Location - Contact us for a free quote',
+      allEmiratesDesc: 'All Emirates Across UAE - Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah & More',
+      readyToMoveBtn: 'Get Quote for Your Location',
+      callUs: 'Call us today for a free consultation and quote. Our team is ready to help you move!',
       professionalService: 'Professional service available',
       experiencedTeam: 'Experienced Team',
       experiencedDesc: 'Over 15 years of professional moving experience',
@@ -87,7 +87,7 @@ export default function Home() {
       email: 'البريد الإلكتروني',
       serviceArea: 'منطقة الخدمة',
       company: 'الشركة',
-      getQuote: 'للاتصال العاجل الآن',
+      getQuote: 'احصل على عرض لموقعك',
       learnMore: 'تعرف على المزيد',
       callNow: 'اتصل الآن',
       professionalMoving: 'خدمات النقل المهنية',
@@ -99,12 +99,12 @@ export default function Home() {
       serviceTitle: 'خدماتنا',
       whyChoose: 'لماذا تختار طريق سري؟',
       coverageTitle: 'التغطية في جميع أنحاء الإمارات',
-      coverageDesc: 'نخدم جميع الإمارات والمدن الرئيسية',
+      coverageDesc: 'نخدم جميع الإمارات عبر الإمارات بتغطية شاملة',
       getInTouch: 'تواصل معنا',
-      readyToMove: 'هل أنت مستعد للانتقال؟ تواصل معنا للحصول على عرض مجاني',
-      allEmiratesDesc: 'جميع الإمارات - دبي وأبو ظبي والشارقة والمزيد',
-      readyToMoveBtn: 'هل أنت مستعد للانتقال؟',
-      callUs: 'اتصل بنا اليوم للحصول على استشارة مجانية وعرض. فريقنا مستعد لمساعدتك!',
+      readyToMove: 'احصل على عرض لموقعك - تواصل معنا للحصول على عرض مجاني',
+      allEmiratesDesc: 'جميع الإمارات عبر الإمارات - دبي وأبو ظبي والشارقة وعجمان ورأس الخيمة والفجيرة والمزيد',
+      readyToMoveBtn: 'احصل على عرض لموقعك',
+      callUs: 'اتصل بنا اليوم للحصول على استشارة مجانية وعرض. فريقنا مستعد لمساعدتك في نقلك!',
       professionalService: 'الخدمة المهنية متاحة',
       experiencedTeam: 'فريق ذو خبرة',
       experiencedDesc: 'أكثر من 15 سنة من خبرة النقل المهنية',
@@ -235,12 +235,12 @@ export default function Home() {
             </a>
           </div>
 
-          <a
-            href="tel:+971528102191"
-            className="md:hidden bg-primary text-white hover:bg-opacity-90 px-4 py-2 rounded-lg font-semibold transition-all"
-          >
-            {t.getQuote}
-          </a>
+            <a
+              href="#contact"
+              className="md:hidden bg-primary text-white hover:bg-opacity-90 px-4 py-2 rounded-lg font-semibold transition-all"
+            >
+              {t.getQuote}
+            </a>
         </div>
       </header>
 
@@ -435,8 +435,8 @@ export default function Home() {
           </div>
 
           <div className="bg-white bg-opacity-10 p-8 rounded-lg text-center border border-white border-opacity-20">
-            <h3 className="text-2xl font-bold mb-4">{t.readyToMoveBtn}</h3>
-            <p className="text-gray-100 mb-6">
+            <h3 className="text-2xl font-bold mb-4 text-white">{t.readyToMoveBtn}</h3>
+            <p className="text-white mb-6 text-lg font-semibold">
               {t.callUs}
             </p>
             <a
