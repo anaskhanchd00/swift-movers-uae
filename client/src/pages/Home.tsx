@@ -298,8 +298,8 @@ export default function Home() {
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               {language === 'en' ? 'Comprehensive moving solutions tailored to your needs' : 'حلول نقل شاملة مصممة حسب احتياجاتك'}
             </p>
-            <div className="mt-8 inline-block bg-accent bg-opacity-10 border-2 border-accent rounded-lg px-6 py-3">
-              <p className="text-accent font-bold text-sm">{language === 'en' ? 'Serving All Emirates Across UAE' : 'خدمات في جميع الإمارات'}</p>
+            <div className="mt-8 inline-block bg-accent bg-opacity-20 border-2 border-accent rounded-lg px-6 py-3 shadow-lg">
+              <p className="text-accent font-bold text-base">{language === 'en' ? 'Serving All Emirates Across UAE' : 'خدمات في جميع الإمارات'}</p>
             </div>
           </div>
 
@@ -381,8 +381,8 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center bg-gradient-to-r from-primary to-primary bg-opacity-5 p-8 rounded-lg">
-            <p className="text-gray-700 mb-4">And all other emirates across UAE</p>
+          <div className="text-center bg-gradient-to-r from-accent to-accent bg-opacity-10 p-8 rounded-lg border-2 border-accent border-opacity-30">
+            <p className="text-accent font-bold text-lg mb-4">And all other emirates across UAE</p>
             <Button className="cta-button cta-button-secondary text-lg">
               <MapPin className="mr-2" size={20} />
               Get Quote for Your Location
@@ -439,7 +439,7 @@ export default function Home() {
 
           <div className="bg-white bg-opacity-10 p-8 rounded-lg text-center border border-white border-opacity-20">
             <h3 className="text-2xl font-bold mb-4 text-white">{t.readyToMoveBtn}</h3>
-            <p className="text-white mb-6 text-lg font-semibold">
+            <p className="text-accent mb-6 text-lg font-semibold">
               {t.callUs}
             </p>
             <a
