@@ -251,7 +251,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="flex flex-col justify-center">
-              <p className="text-accent font-semibold text-lg mb-4">{t.professionalMoving}</p>
+              <p className="text-primary font-semibold text-lg mb-4">{t.professionalMoving}</p>
               <h1 className="text-primary mb-6 leading-tight">{t.yourMove}</h1>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 {t.companyDesc}
@@ -300,7 +300,7 @@ export default function Home() {
               {language === 'en' ? 'Comprehensive moving solutions tailored to your needs' : 'حلول نقل شاملة مصممة حسب احتياجاتك'}
             </p>
             <div className="mt-8 inline-block bg-accent bg-opacity-20 border-2 border-accent rounded-lg px-6 py-3 shadow-lg">
-              <p className="text-accent font-bold text-base">{language === 'en' ? 'Serving All Emirates Across UAE' : 'خدمات في جميع الإمارات'}</p>
+              <p className="text-primary font-bold text-base">{language === 'en' ? 'Serving All Emirates Across UAE' : 'خدمات في جميع الإمارات'}</p>
             </div>
           </div>
 
@@ -322,7 +322,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="mb-4 p-3 bg-accent bg-opacity-10 rounded-lg w-fit">
-                    <Icon className="text-accent" size={24} />
+                    <Icon className="text-primary" size={24} />
                   </div>
                   <h3 className="text-primary font-bold mb-2">{service.title}</h3>
                   <p className="text-gray-600 text-sm">{service.description}</p>
@@ -383,7 +383,7 @@ export default function Home() {
           </div>
 
           <div className="text-center bg-gradient-to-r from-accent to-accent bg-opacity-10 p-8 rounded-lg border-2 border-accent border-opacity-30">
-            <p className="text-accent font-bold text-lg mb-4">And all other emirates across UAE</p>
+            <p className="text-primary font-bold text-lg mb-4">And all other emirates across UAE</p>
             <Button className="cta-button cta-button-secondary text-lg">
               <MapPin className="mr-2" size={20} />
               Get Quote for Your Location
@@ -403,7 +403,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Phone className="text-accent" size={32} />
+                <Phone className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">{t.phone}</h3>
               <a href="tel:+971528102191" className="text-gray-100 hover:text-accent transition-colors">
@@ -413,7 +413,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Mail className="text-accent" size={32} />
+                <Mail className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">{t.email}</h3>
               <a href="mailto:ramoversandpackers33@gmail.com" className="text-gray-100 hover:text-accent transition-colors break-all">
@@ -423,7 +423,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <MapPin className="text-accent" size={32} />
+                <MapPin className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">{t.serviceArea}</h3>
               <p className="text-gray-100">All Emirates - Dubai, Abu Dhabi, Sharjah & More</p>
@@ -431,7 +431,7 @@ export default function Home() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Building2 className="text-accent" size={32} />
+                <Building2 className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold mb-2">{t.company}</h3>
               <p className="text-gray-100">TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C</p>
@@ -440,7 +440,7 @@ export default function Home() {
 
           <div className="bg-white bg-opacity-10 p-8 rounded-lg text-center border border-white border-opacity-20">
             <h3 className="text-2xl font-bold mb-4 text-white">{t.readyToMoveBtn}</h3>
-            <p className="text-accent mb-6 text-lg font-semibold">
+            <p className="text-white mb-6 text-lg font-semibold">
               {t.callUs}
             </p>
             <a
